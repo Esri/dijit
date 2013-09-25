@@ -78,3 +78,12 @@
 .soria .dijitRadioMenuItemChecked .dijitMenuItemIcon {
 	background-position: -64px;
 }
+
+/* https://support.sitepen.com/issues/21076 */
+.dj_ie8 .soria .dijitPopup .dijitMenuItemLabel, 
+.dj_ie9 .soria .dijitPopup .dijitMenuItemLabel {
+  position: static;
+}
+.dj_ie9 .soria .dijitPopup .dijitMenuTable {
+  overflow: visible !important;
+}
