@@ -75,6 +75,12 @@ table.dijitInline {
 	display: inline-block !important; /* to fix wrong text alignment in textdir=rtl text box */
 }
 
+/* https://bugs.dojotoolkit.org/ticket/17150 */
+/* https://support.sitepen.com/issues/22112 */
+.dj_ie7 .dijitInputContainer {
+  float: none !important;
+}
+
 .dj_ie .dijitSelect input,
 .dj_ie input.dijitTextBox,
 .dj_ie .dijitTextBox input {
@@ -1719,6 +1725,12 @@ div.dijitTabDisabled, .dj_ie div.dijitTabDisabled {
 }
 .dj_ie7 .dijitSliderImageHandle {
 	overflow: hidden; /* IE7 workaround to make slider handle VISIBLE in non-a11y mode */
+  /*
+   * Local patch for Dojo 1.5
+   * Fixes the problem where the bottom-border of a vertical slider
+   * handle is not visible in IE 7
+   */
+  font-size: 75%;
 }
 .dj_ie7 .dj_a11y .dijitSliderImageHandle {
 	overflow: visible; /* IE7 workaround to make slider handle VISIBLE in a11y mode */
@@ -1780,6 +1792,16 @@ div.dijitTabDisabled, .dj_ie div.dijitTabDisabled {
 	text-align:left;
 }
 
+/*
+ * Local patch for Dojo 1.5
+ * Fixes the problem where there is a small gap near the bottom
+ * end of the slider (like it's broken) in Webkit-based browsers
+ * I have seen this issue before Dojo 1.5
+ */
+.dj_webkit .dijitSliderProgressBarV {
+  padding-top: 1px;
+}
+
 .dijitSliderProgressBarH {
 	position:absolute !important;
 	width:0;
@@ -1837,6 +1859,15 @@ div.dijitTabDisabled, .dj_ie div.dijitTabDisabled {
 .dijitSliderDecorationC,
 .dijitSliderDecorationV {
 	position: relative; /* needed for IE+quirks+RTL+vertical (rendering bug) but add everywhere for custom styling consistency but this messes up IE horizontal sliders */
+}
+
+/*
+ * Local patch for Dojo 1.5
+ * To fix the problem where the slider handle is partially hidden
+ * when placed at the bottom of a vertical slider (IE 7)
+ */
+.dj_ie6 .dijitSliderV td, .dj_ie7 .dijitSliderV td {
+  position: static;
 }
 
 .dijitSliderDecorationH {
