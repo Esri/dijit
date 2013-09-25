@@ -292,12 +292,23 @@ define([
 
 			return (!!searchString.length && currentString == searchString) ? -1 : 0; // stop searching after first match by default
 		},
+		
+		_isFormElement: function(element) {
+		  return element.tagName === "INPUT" || 
+		         element.tagName === "TEXTAREA" || 
+		         element.tagName === "SELECT" || 
+		         element.tagName === "BUTTON";
+		},
 
 		_onContainerKeydown: function(evt){
 			// summary:
 			//		When a key is pressed, if it's an arrow key etc. then it's handled here.
 			// tags:
 			//		private
+			
+			if (this._isFormElement(document.activeElement)) {
+			  return;
+			}
 
 			var func = this._keyNavCodes[evt.keyCode];
 			if(func){
@@ -317,6 +328,10 @@ define([
 			//		When a printable key is pressed, it's handled here, searching by letter.
 			// tags:
 			//		private
+
+			if (this._isFormElement(document.activeElement)) {
+			  return;
+			}
 
 			// Ignore:
 			// 		- duplicate events on firefox (ex: arrow key that will be handled by keydown handler)
