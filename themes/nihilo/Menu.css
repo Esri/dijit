@@ -78,3 +78,11 @@
 .nihilo .dijitRadioMenuItemChecked .dijitMenuItemIcon {
 	background-position: -64px;
 }
+
+.dj_ie8 .nihilo .dijitPopup .dijitMenuItemLabel,
+.dj_ie9 .nihilo .dijitPopup .dijitMenuItemLabel {
+  position: static;
+}
+.dj_ie9 .nihilo .dijitPopup .dijitMenuTable {
+  overflow: visible !important;
+}

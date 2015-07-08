@@ -86,3 +86,11 @@
 .tundra .dijitRadioMenuItemChecked .dijitMenuItemIcon {
 	background-position: -95px;	/* 15px * 7 */
 }
+
+.dj_ie8 .tundra .dijitPopup .dijitMenuItemLabel,
+.dj_ie9 .tundra .dijitPopup .dijitMenuItemLabel {
+  position: static;
+}
+.dj_ie9 .tundra .dijitPopup .dijitMenuTable {
+  overflow: visible !important;
+}
