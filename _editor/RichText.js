@@ -1896,6 +1896,9 @@ define([
 			if(!command){
 				return false;
 			}
+			if (has("ie") || has("trident") || has("edge")) {
+				return this.focused && !this.disabled;
+			}
 			var elem = has("ie") < 9 ? this.document.selection.createRange() : this.document;
 			try{
 				return elem.queryCommandEnabled(command);
@@ -1935,7 +1938,7 @@ define([
 			// tags:
 			//		protected
 			var enabled = true;
-			if(has("mozilla") || has("webkit")){
+			if(has("mozilla") || has("webkit") || has("ie") || has("trident") || has("edge")){
 				enabled = this.selection.hasAncestorElement("a");
 			}else{
 				enabled = this._browserQueryCommandEnabled("unlink");
