@@ -57,6 +57,7 @@ define({ root:
 "hu": true,
 "hr": true,
 "he": true,
+"hi": true,
 "fr": true,
 "fi": true,
 "eu": true,
